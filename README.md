@@ -27,7 +27,7 @@ But here comes my proposal for you:
 
 2. After that you should learn [React Fundamentals](#react-fundamentals), strapped of all the additional complexity, that you will encounter when setting up your own React projects.
 
-3. Once you have a basic understanding of the API of React, you can focus on different, connected topics like [Project Setup](#project-setup), [Routing](#routing), [State Management](#state-management), more [Advanced Component Patterns](#advanced-component-patterns) and the React [Hooks API](#hooks-api).
+3. Once you have a basic understanding of the API of React, you can focus on different, connected topics like [Project Setup](#project-setup), [Routing](#routing),  more [Advanced Component Patterns](#advanced-component-patterns) and [State Management](#state-management).
 
 4. The beauty (and ugly) of React is it's openess. It is not a complete framework, it does mainly one thing for you and that is build up the Browsers DOM based on the components you wrote and the data you pour into them. You will have the freedom and responsibility to choose from endless options. So I'll give you a few ideas of [Where to go from here](#where-to-go-from-here).
 
