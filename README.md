@@ -5,8 +5,18 @@
       1. [Web Fundamentals](#web-fundamentals)
       2. [React Fundamentals](#react-fundamentals)
       3. [Project Setup](#project-setup)
+         1. [Create React App](#create-react-app)
+         2. [Babel](#babel)
+         3. [Bundler](#bundler)
+            1. [Webpack](#webpack)
+            2. [Parcel](#parcel)
+            3. [Rollup](#rollup)
       4. [Routing](#routing)
       5. [Advanced Component Patterns](#advanced-component-patterns)
+         1. [Higher Order Components (HOC)](#higher-order-components-hoc)
+         2. [Render Prop Components](#render-prop-components)
+         3. [Hooks](#hooks)
+         4. [Compound Components](#compound-components)
       6. [State Management](#state-management)
       7. [Where to go from here](#where-to-go-from-here)
          1. [News](#news)
@@ -23,13 +33,13 @@ There are also alternative guides like [Kent C. Dodds'](https://kentcdodds.com/)
 
 But here comes my proposal for you:
 
-1. Before diving into React it might be helpful to check on your exisiting skills regarding the [Web Fundamentals](#web-fundamentals), like HTML, CSS and JavaScript.
+1. Before diving into React it might be helpful to check your exisiting skills regarding the [Web Fundamentals](#web-fundamentals), like HTML, CSS and JavaScript.
 
 2. After that you should learn [React Fundamentals](#react-fundamentals), strapped of all the additional complexity, that you will encounter when setting up your own React projects.
 
-3. Once you have a basic understanding of the API of React, you can focus on different, connected topics like [Project Setup](#project-setup), [Routing](#routing),  more [Advanced Component Patterns](#advanced-component-patterns) and [State Management](#state-management).
+3. Once you have a basic understanding of the API of React, you can focus on different, connected topics like [Project Setup](#project-setup), [Routing](#routing), more [Advanced Component Patterns](#advanced-component-patterns) and [State Management](#state-management).
 
-4. The beauty (and ugly) of React is it's openess. It is not a complete framework, it does mainly one thing for you and that is build up the Browsers DOM based on the components you wrote and the data you pour into them. You will have the freedom and responsibility to choose from endless options. So I'll give you a few ideas of [Where to go from here](#where-to-go-from-here).
+4. The beauty (and ugly) of React is it's openess. It is not a complete framework. It does mainly one thing for you and that is build up the Browsers DOM based on the components you wrote and the data you pour into them. You will have the freedom and responsibility to choose from endless options. So I'll give you a few ideas of [Where to go from here](#where-to-go-from-here).
 
 ### Web Fundamentals
 
@@ -45,15 +55,128 @@ You will not have to set up a local project - My advise: Leave that for later wh
 
 ### Project Setup
 
-_todo... Babel, Webpack/Parcel, Create React App_
+I am not going to dive to much into the depth of [webpack](https://webpack.js.org/), [Babel](https://babeljs.io/) and such tools. Neither am I a decorated expert with those tools, nor is there a need. There is an almost unlimited amount of resources regarding JavaScript project setups and toolchains.
+
+I would advise you to start [here](https://reactjs.org/docs/create-a-new-react-app.html), in case you are completely new to the tools mentioned here.
+
+Here is a little overview:
+
+#### [Create React App](https://create-react-app.dev/docs/getting-started/)
+
+Create React App is a comfortable environment for learning React, and is the best way to start building a new [single-page](https://reactjs.org/docs/glossary.html#single-page-application) application in React. It provides a preconfigured setup for you to get started and comes with tools such as [Babel](#babel), [webpack](#webpack) and others.
+
+#### [Babel](https://babeljs.io/docs/en/index.html)
+
+Babel is a toolchain that is mainly used to convert ECMAScript 2015+ code into a backwards compatible version of JavaScript in current and older browsers or environments.
+
+#### Bundler
+
+Because there is more than one bundler out there, I listed the three most common ones. While [webpack](#webpack) ist the most popular one and the veteran of the group, [Parcel](#parcel) and [Rollup](#rollup) are two interesting alternatives.
+
+You'll find multiple comparisons of those tools, here is [one from 2020](https://blog.logrocket.com/benchmarking-bundlers-2020-rollup-parcel-webpack/).
+
+The official docs of those tools will all provide a getting started with React section.
+
+##### [Webpack](https://webpack.js.org/concepts/)
+
+At its core, webpack is a static module bundler for modern JavaScript applications. When webpack processes your application, it internally builds a [dependency graph](https://webpack.js.org/concepts/dependency-graph/) which maps every module your project needs and generates one or more bundles.
+
+##### [Parcel](https://parceljs.org/getting_started.html)
+
+Is another blazing fast, zero configuration web application bundler and an alternative to [webpack](#webpack).
+
+##### [Rollup](https://rollupjs.org/guide/en/)
+
+Rollup is yet another module bundler for JavaScript which compiles small pieces of code into something larger and more complex, such as a library or application.
 
 ### Routing
 
-_todo... React Router_
+Similar to what a router would do at the backend, deciding which content to return to the user based on the requested URL, a router in React decides which React component to render based on the URL in the browser. The difference to traditional [server-side rendered websites](https://developer.mozilla.org/en-US/docs/Learn/Server-side) is, that routing on the client side doesn't result in a reload of the browser. Which makes it potentially faster and doesn't destroy local state in the web application.
+
+The most popular and common choice for client side routing in React is [React Router](https://reactrouter.com/web/guides/quick-start). The [official docs of React Router](https://reactrouter.com/web/guides/quick-start) are very sufficient. If you are looking for another getting started tutorial, [here](https://www.freecodecamp.org/news/a-complete-beginners-guide-to-react-router-include-router-hooks/) is a pretty nice and complete one.
 
 ### Advanced Component Patterns
 
-_todo... Compound, Higher Order, Render Props, Hooks_
+Working as a software developer you'll see common, repeating issues or challenges to occur when working with any technology. [Design Patterns](https://refactoring.guru/design-patterns/what-is-pattern) are solutions to those aforementioned problems.
+
+Because React applications are component based, a lot of common React design patterns are focused on how to write or structure your components. The following patterns are very common in the React ecosystem and should be part of your React foundation.
+
+#### Higher Order Components (HOC)
+
+Main usage: Composing of functionality
+
+> A higher-order component (HOC) is an advanced technique in React for reusing component logic. HOCs are not part of the React API, per se. They are a pattern that emerges from React’s compositional nature.
+>
+> Concretely, a higher-order component is a function that takes a component and returns a new component.
+>
+> ```js
+> const EnhancedComponent = higherOrderComponent(WrappedComponent);
+> ```
+
+_(Source: https://reactjs.org/docs/higher-order-components.html)_
+
+#### Render Prop Components
+
+Main usage: Composing of functionality
+
+> The term “render prop” refers to a technique for sharing code between React components using a prop whose value is a > function.
+>
+> A component with a render prop takes a function that returns a React element and calls it instead of implementing its own render logic.
+>
+> ```jsx
+> <DataProvider render={(data) => <h1>Hello {data.target}</h1>} />
+> ```
+
+_(Source: https://reactjs.org/docs/render-props.html)_
+
+You can make it even more readably by using the [`children` property](https://reactjs.org/docs/introducing-jsx.html#specifying-children-with-jsx) instead of a custom one.
+
+```jsx
+<DataProvider>{(data) => <h1>Hello {data.target}</h1>}</DataProvider>
+```
+
+Render Prop Components solve similar problems as [HOCs](#higher-order-components-hoc), but are more [flexible in usage](https://gist.github.com/heygrady/f9bf3b6dd93fe3d87ba87430fd3c20d5). The downside is, that Render Prop Components, which are often non rendering components, introduce more components to the React component tree, which means more work for React.
+
+#### Hooks
+
+If you read the [Render Prop Components](#render-prop-components) section, you might remember that they are a powerful component pattern but tend to introduce more components to the tree than necessary. After all, we usually don't want to render anything with Render Props, we just want to distribute reusable functionality in a flexible way.
+
+React [Hooks](https://reactjs.org/docs/hooks-intro.html) to the rescue!
+
+Hooks are not a component pattern per se but a relatively new (since React 16.8) member of the React API. React comes with a lot of [useful standard Hooks](https://reactjs.org/docs/hooks-reference.html) but gives you the ability to [build your own](https://reactjs.org/docs/hooks-custom.html).
+
+I'm a big fan of Hooks!
+
+#### Compound Components
+
+[Compound Components](https://dev.to/alexi_be3/react-component-patterns-49ho#flexible-compound-components) let you create a relation between two or more components, to have state or behavior shared.
+
+They are very helpful for building components with a nested structure, such as lists, dropdowns, tables and many more. It lets you transform code like this
+
+```jsx
+const items = [
+  { label: "Item 1", disabled: false, onClick: () => {...} },
+  { label: "Item 2", disabled: true },
+  ...
+]
+
+<Dropdown items={items} />
+```
+
+into code like this
+
+```jsx
+<Dropdown>
+  <Dropdown.Item label="Item 1" onClick={() => {...}} />
+  <Dropdown.Item label="Item 2" disabled />
+</Dropdown>
+```
+
+Why is version 2 better than version 1 you ask?
+
+When you have worked with more complex components, that include some logic to decide what happens, you usually end up creating a lot of properties to put it all together. Look at the example above, the `items` property array knows three values already: `label`, `disabled`, `onClick`. Now imagine you want to add pictures, maybe decide whether to put it left or right, change the background or font color, or present a totally different layout. You'll end up with an ugly API that creates horrible conditional code in your component and will be a nightmare to use and maintain soon after.
+
+With Compound Components you can split up concerns (always a good idea). The wrapping component renders the wrapped components into a specific layout, maybe gives them some shared configuration or state and that's it. Each of the wrapped components take care of their own rendering, which makes it very flexible.
 
 ### State Management
 
@@ -67,7 +190,7 @@ So what next you're asking? Well with React it never really ends... hopefully.
 
 There are some places, like the [official React Blog](https://reactjs.org/blog) that you should definitely take a look at once in a while.
 
-Other good blogs I like to follow are from [Kent C. Dodds](https://kentcdodds.com/blog/) - He used to work for paypal and release all kinds of goodies. He is a fulltime educator now, which unfortunately resulted in the decline of his free material. Still worth it to check out - and [Mark Erikson](https://blog.isquaredsoftware.com/) - A Redux maintainer.
+Other good blogs I like to follow are from [Kent C. Dodds](https://kentcdodds.com/blog/) - He used to work for PayPal and releases all kinds of goodies. He is a fulltime educator now, which unfortunately resulted in the decline of his free material. Still worth it to check out - and [Mark Erikson](https://blog.isquaredsoftware.com/) - A Redux maintainer.
 
 Besides that there is [daily.dev](https://daily.dev/) which gives you all kinds of development oriented articles. It comes with a really nice browser extension for [Chrome](https://chrome.google.com/webstore/detail/dailydev-news-for-busy-de/jlmpjdjjbgclbocgajdjefcidcncaied) and [Firefox](https://addons.mozilla.org/en-US/firefox/addon/daily/) - my secret tip!
 
