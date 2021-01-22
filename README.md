@@ -232,7 +232,7 @@ Let's recap from [Sharing State](#sharing-state):
 
 So what the heck is [React Context](https://reactjs.org/docs/context.html) than?
 
-Well, imagine you have a lot of components and a lot of state to share and you want to use [Events](https://reactjs.org/docs/handling-events.html) for inbetween component communication. It all works with lifting up the state. But you most likely will have a deeply nested component tree at some point and solving everything with lifting state and passing down props will be painful. Trust me! You'll have to pass data and callbacks from component A through B, C, D, E, F, just for it to finally arrive at component G - icky!
+Well, imagine you have a lot of components and a lot of state to share and you want to use [Events](https://reactjs.org/docs/handling-events.html) for inbetween component communication. It all works with lifting up the state. But you most likely will have a deeply nested component tree at some point and solving everything with lifting state and passing down props will be painful. Trust me! You'll have to pass data and callbacks from component A through B, C, D, E, F, just for it to finally arrive at component G - yuck!
 
 So [`Context`](https://reactjs.org/docs/context.html) lets you define values and [provide](https://reactjs.org/docs/context.html#contextprovider) them down the whole component tree. Only components that are interested in the values can consume them with the [`useContext` Hook](https://reactjs.org/docs/hooks-reference.html#usecontext).
 
